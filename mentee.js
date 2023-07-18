@@ -110,8 +110,8 @@ let sear = document.querySelector("#sear");
 let loca = document.querySelector("#loca");
 let temp = document.querySelector("#temp");
 let wimp = document.querySelector("#wimg");
-let cli = document.querySelectorAll(".cli");
-let locate = document.querySelectorAll(".locate");
+let cli = document.querySelector("#cli");
+let locate = document.querySelector("#locate");
 let data;
 let dt;
 let city;
@@ -128,12 +128,10 @@ function fetchinfo() {
       changedsiplay();
     },
     error: function ajaxError(jqXHR) {
-      locate[0].textContent = "Select Other Location";
-      locate[1].textContent = "Select Other Location";
+      locate.textContent = "Select Other Location";
       wimp.src = "Weather/clear.png";
       temp.textContent = "0°c";
-      cli[0].textContent = "N/A";
-      cli[1].textContent = "N/A";
+      cli.textContent = "N/A";
       humidity.textContent = "N/A\r\n(Humidity)";
   wind.textContent = "N/A\r\n(Wind Speed)";
     },
@@ -141,26 +139,21 @@ function fetchinfo() {
 }
 function changedsiplay() {
   dt = data.temp;
-  locate[0].textContent = city;
-  locate[1].textContent = city;
+  locate.textContent = city;
   humidity.textContent = data.humidity + "\r\n(Humidity)";
   wind.textContent = data.wind_speed + " km/h\r\n(Wind Speed)";
   if (data.cloud_pct <= 40) {
     wimp.src = "Weather/clear.png";
-    cli[0].textContent = "Clear";
-    cli[1].textContent = "Clear";
+    cli.textContent = "Clear";
   } else if (data.cloud_pct > 40 && data.cloud_pct <= 60) {
     wimp.src = "Weather/cloud.png";
-    cli[0].textContent = "Cloudy";
-    cli[1].textContent = "Cloudy";
+    cli.textContent = "Cloudy";
   } else if (data.cloud_pct > 60 && data.cloud_pct <= 90) {
     wimp.src = "Weather/drizzle.png";
-    cli[0].textContent = "Drizzle";
-    cli[1].textContent = "Drizzle";
+    cli.textContent = "Drizzle";
   } else if (data.cloud_pct > 90 && data.cloud_pct <= 100) {
     wimp.src = "Weather/rain.png";
-    cli[0].textContent = "Rain";
-    cli[1].textContent = "Rain";
+    cli.textContent = "Rain";
   }
   temp.textContent = dt + "°c";
 }
@@ -168,17 +161,14 @@ loca.addEventListener("change", () => {
   ws.value = loca.value;
 });
 sear.addEventListener("click", () => {
-  locate[0].textContent = "Loading...";
-  locate[1].textContent = "Loading...";
+  locate.textContent = "Loading...";
   if (ws.value == "" || ws.value == "null") {
     setTimeout(() => {
-      locate[0].textContent = "Select Location";
-      locate[1].textContent = "Select Location";
+      locate.textContent = "Select Location";
     }, 1000);
     wimp.src = "Weather/clear.png";
     temp.textContent = "0°c";
-    cli[0].textContent = "N/A";
-    cli[1].textContent = "N/A";
+    cli.textContent = "N/A";
     humidity.textContent = "N/A\r\n(Humidity)";
     wind.textContent = "N/A\r\n(Wind Speed)";
   } else {
