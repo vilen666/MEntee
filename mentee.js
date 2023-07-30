@@ -182,14 +182,14 @@ let photo = document.querySelectorAll(".photo");
 let photochange = setInterval(photofunc1, 5000);
 let pcount1 = 2;
 let pflag1 = 1;
-photo[0].style.backgroundImage = `url("Andhra Pradesh/1.jpg")`;
+photo[0].style.backgroundImage = `url("Location/All/1.jpg")`;
 function photofunc1() {
   console.log(pcount1 + "1");
-  if (pflag1 == 1 && pcount1 < 11) pcount1 += 1;
-  if (pflag1 == 1 && pcount1 == 11) pcount1 = 1;
+  if (pflag1 == 1 && pcount1 < 10) pcount1 += 1;
+  if (pflag1 == 1 && pcount1 == 10) pcount1 = 1;
   pflag1 = 0;
-  photo[0].style.backgroundImage = `url("Andhra Pradesh/${pcount1}.jpg")`;
-  if (pcount1 >= 11) {
+  photo[0].style.backgroundImage = `url("Location/All/${pcount1}.jpg")`;
+  if (pcount1 >= 10) {
     pcount1 = 1;
   } else {
     pcount1 += 1;
@@ -202,18 +202,18 @@ pbut[0].addEventListener("click", () => {
     pcount1 -= 1;
   }
   if (pcount1 == 0) {
-    pcount1 = 11;
-    photo[0].style.backgroundImage = `url("Andhra Pradesh/${pcount1}.jpg")`;
+    pcount1 = 10;
+    photo[0].style.backgroundImage = `url("Location/All/${pcount1}.jpg")`;
     pflag1 = 1;
     photochange = setInterval(photofunc1, 5000);
   } else if (pcount1 == 1) {
-    pcount1 = 11;
-    photo[0].style.backgroundImage = `url("Andhra Pradesh/${pcount1}.jpg")`;
+    pcount1 = 10;
+    photo[0].style.backgroundImage = `url("Location/All/${pcount1}.jpg")`;
     pflag1 = 1;
     photochange = setInterval(photofunc1, 5000);
   } else {
     pcount1 -= 1;
-    photo[0].style.backgroundImage = `url("Andhra Pradesh/${pcount1}.jpg")`;
+    photo[0].style.backgroundImage = `url("Location/All/${pcount1}.jpg")`;
     pflag1 = 1;
     photochange = setInterval(photofunc1, 5000);
   }
@@ -226,17 +226,17 @@ pbut[1].addEventListener("click", () => {
   if (pcount1 == 0) {
     pcount1 = 2;
     pflag1 = 1;
-    photo[0].style.backgroundImage = `url("Andhra Pradesh/${pcount1}.jpg")`;
+    photo[0].style.backgroundImage = `url("Location/All/${pcount1}.jpg")`;
     photochange = setInterval(photofunc1, 5000);
-  } else if (pcount1 >= 11) {
+  } else if (pcount1 >= 10) {
     pcount1 = 1;
     pflag1 = 1;
-    photo[0].style.backgroundImage = `url("Andhra Pradesh/${pcount1}.jpg")`;
+    photo[0].style.backgroundImage = `url("Location/All/${pcount1}.jpg")`;
     photochange = setInterval(photofunc1, 5000);
   } else {
     pcount1 += 1;
     pflag1 = 1;
-    photo[0].style.backgroundImage = `url("Andhra Pradesh/${pcount1}.jpg")`;
+    photo[0].style.backgroundImage = `url("Location/All/${pcount1}.jpg")`;
     photochange = setInterval(photofunc1, 5000);
   }
   console.log(pcount1 + "3");
@@ -248,41 +248,45 @@ let state="Andhra Pradesh";
 let photochange2 = setInterval(photofunc2, 5000);
 let pcount2 = 2;
 let pflag2 = 1;
+photo[1].style.backgroundImage = `url("Location/${state}/1.jpg")`;
+scenery.addEventListener("change",()=>
+{
+  state=scenery.value;
+  console.log(state);
+  pcount2 = 2; 
+  pflag2 = 1;
+  photo[1].style.backgroundImage = `url("Location/${state}/1.jpg")`;
+});
 function photofunc2() {
-  
   console.log(pcount2 + "1");
-  if (pflag2 == 1 && pcount2 < 10) pcount2 += 1;
-  if (pflag2 == 1 && pcount2 == 10) pcount2 = 1;
+  if (pflag2 == 1 && pcount2 < 6) pcount2 += 1;
+  if (pflag2 == 1 && pcount2 == 6) pcount2 = 1;
   pflag2 = 0;
-  photo[1].style.backgroundImage = `url("Andhra Pradesh/${pcount2}.jpg")`;
-  if (pcount2 >= 10) {
+  photo[1].style.backgroundImage = `url("Location/${state}/${pcount2}.jpg")`;
+  if (pcount2 >= 6) {
     pcount2 = 1;
   } else {
     pcount2 += 1;
   }
 }
-// scenery.addEventListener("change",()=>
-// {
-//   state=scenery.value;
-// });
 pbut[2].addEventListener("click", () => {
   clearInterval(photochange2);
   if (pflag2 == 0) {
     pcount2 -= 1;
   }
   if (pcount2 == 0) {
-    pcount2 = 10;
-    photo[1].style.backgroundImage = `url("${state}/${pcount2}.jpg")`;
+    pcount2 = 6;
+    photo[1].style.backgroundImage = `url("Location/${state}/${pcount2}.jpg")`;
     pflag2 = 1;
     photochange2 = setInterval(photofunc2, 5000);
   } else if (pcount2 == 1) {
-    pcount2 = 10;
-    photo[1].style.backgroundImage = `url("${state}/${pcount2}.jpg")`;
+    pcount2 = 6;
+    photo[1].style.backgroundImage = `url("Location/${state}/${pcount2}.jpg")`;
     pflag2 = 1;
     photochange2 = setInterval(photofunc2, 5000);
   } else {
     pcount2 -= 1;
-    photo[1].style.backgroundImage = `url("${state}/${pcount2}.jpg")`;
+    photo[1].style.backgroundImage = `url("Location/${state}/${pcount2}.jpg")`;
     pflag2 = 1;
     photochange2 = setInterval(photofunc2, 5000);
   }
@@ -295,17 +299,17 @@ pbut[3].addEventListener("click", () => {
   if (pcount2 == 0) {
     pcount2 = 2;
     pflag2 = 1;
-    photo[1].style.backgroundImage = `url("${state}/${pcount2}.jpg")`;
+    photo[1].style.backgroundImage = `url("Location/${state}/${pcount2}.jpg")`;
     photochange2 = setInterval(photofunc2, 5000);
-  } else if (pcount2 >= 10) {
+  } else if (pcount2 >= 6) {
     pcount2 = 1;
     pflag2 = 1;
-    photo[1].style.backgroundImage = `url("${state}/${pcount2}.jpg")`;
+    photo[1].style.backgroundImage = `url("Location/${state}/${pcount2}.jpg")`;
     photochange2 = setInterval(photofunc2, 5000);
   } else {
     pcount2 += 1;
     pflag2 = 1;
-    photo[1].style.backgroundImage = `url("${state}/${pcount2}.jpg")`;
+    photo[1].style.backgroundImage = `url("Location/${state}/${pcount2}.jpg")`;
     photochange2 = setInterval(photofunc2, 5000);
   }
   console.log(pcount2 + "3");
