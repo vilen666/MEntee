@@ -474,7 +474,6 @@
       margin-left: auto;
       margin-right: 32px;
       align-items: center;
-
   }
 
   #hum div {
@@ -490,7 +489,7 @@
     display: block;
     width: 18vw;
     height: 18vw;
-    margin: -9vh 1vw 10px auto;
+    margin: -3.7vh 1vw 10px auto;
     margin-bottom: -24px;
 }
 
